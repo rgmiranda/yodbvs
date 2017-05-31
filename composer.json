@@ -1,0 +1,17 @@
+{
+    "name": "rgmiranda/yodbvs",
+    "description": "Yet another database versioning system",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ricardo Miranda",
+            "email": "rgmiranda@live.com.ar"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {"yodbvs\\": "src/"}
+    }
+}
