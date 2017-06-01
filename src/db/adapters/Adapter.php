@@ -26,7 +26,7 @@ abstract class Adapter {
     }
 
     public static function createInstance($config) {
-        $class = "\\yodbvs\\db\\adapters\\{$config['adapter']}";
+        $class = '\\' . __NAMESPACE__ . "\\{$config['adapter']}";
         return new $class($config['host'], $config['port'], $config['user'], $config['pass'], $config['dbname']);
     }
  
@@ -47,5 +47,5 @@ abstract class Adapter {
      */
     //public abstract function getSchemaObject($name);
 
-    public abstract function getDSN($host = false, $port = false, $dbname = false);
+    protected abstract function getDSN($host = false, $port = false, $dbname = false);
 }
