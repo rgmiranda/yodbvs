@@ -10,7 +10,9 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {},
+    "require": {
+        "monolog/monolog": "^1.22"
+    },
     "autoload": {
         "psr-4": {"yodbvs\\": "src/"}
     }
