@@ -6,7 +6,7 @@ class Config {
     private static $instance = NULL;
     private $configParams;
     private function __construct () {
-        $configParams = include implode(DIRECTORY_SEPARATOR, array (__DIR__, '..', 'config.php'));
+        $this->configParams = include implode(DIRECTORY_SEPARATOR, array (__DIR__, '..', 'config.php'));
     }
 
     public static function getInstance() {
@@ -20,7 +20,7 @@ class Config {
         $props = explode('.', $prop);
         $currentGroup = $this->configParams;
         while (count($props) > 0) {
-            $key = array_shit($props);
+            $key = array_shift($props);
             if (!is_array($currentGroup)) {
                 return NULL;
             }
