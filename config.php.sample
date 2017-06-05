@@ -2,9 +2,19 @@
 
 return array (
     'db' => array (
-        'host'      => '',
-        'user'      => '',
-        'pass'      => '',
-        'dbname'    => '',
+        'adapter'   => 'MySQL',
+        'host'      => 'localhost',
+        'user'      => 'root',
+        'pass'      => 'sacha666',
+        'dbname'    => 'sigepe',
+        'port'      => '3306',
+    ),
+    'misc' => array (
+        'dir' => implode(DIRECTORY_SEPARATOR, array (__DIR__, 'data', 'misc')),
+        'datafile' => implode(DIRECTORY_SEPARATOR, array (__DIR__, 'data', 'misc', 'data.dat')),
+        'logfile' => implode(DIRECTORY_SEPARATOR, array (__DIR__, 'data', 'misc', 'yodbvs.log')),
+    ),
+    'revisions' => array (
+        'dir' => implode(DIRECTORY_SEPARATOR, array (__DIR__, 'data', 'revisions')),
     )
 );
