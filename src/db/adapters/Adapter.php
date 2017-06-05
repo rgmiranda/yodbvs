@@ -9,10 +9,12 @@ abstract class Adapter {
      * Se conecta con la base de datos
      * @throws \PDOException
      */
-    public function __construct(
-        $host = false, $port = false, $username = false,
-        $password = false, $dbname = false
-    ) {
+    public function __construct($config) {
+        $host = empty($config['host']) ? false : $config['host'];
+        $port = empty($config['port']) ? false : $config['port'];
+        $dbname = empty($config['dbname']) ? false : $config['dbname'];
+        $username = empty($config['user']) ? false : $config['user'];
+        $password = empty($config['pass']) ? false : $config['pass'];
         $dsn = $this->getDSN($host, $port, $dbname);
         $this->pdo = new \PDO($dsn, $username, $password);
     }
@@ -26,8 +28,9 @@ abstract class Adapter {
     }
 
     public static function createInstance($config) {
-        $class = '\\' . __NAMESPACE__ . "\\{$config['adapter']}";
-        return new $class($config['host'], $config['port'], $config['user'], $config['pass'], $config['dbname']);
+        $adapter = empty($config['adapter']) ? FALSE : $config['adapter'];
+        $class = '\\' . __NAMESPACE__ . "\\{$adapter}";
+        return new $class($config);
     }
  
     /**
